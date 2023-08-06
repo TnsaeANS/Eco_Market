@@ -4,15 +4,17 @@
     background-size: cover;
     color: white;
     font-weight: bold;
-    width: 100%;
+    
       }
     .navbars {   
     color: green;
     font-weight: bold;
-    width:40%;
+    width:400%;
 }
 
-    
 
+h1 {
+    text-align: center;
+}
   
    

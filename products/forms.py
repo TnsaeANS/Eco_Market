@@ -1,10 +1,16 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from django.contrib.auth.models import User
-
+# from .models import Order
 
 
 class CreateUserForm(UserCreationForm):
-    class meta:
+    class Meta:
         model = User
-        fields = ['username', 'emali', 'password1', 'password2']
+        fields = ['username', 'email', 'password1', 'password2']
+
+
+# class OrderForm(forms.ModelForm):
+#     class Meta:
+#         model = Order
+#         fields = '__all__' 

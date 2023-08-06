@@ -6,6 +6,7 @@ class Product(models.Model):
     price = models.FloatField()
     stock = models.IntegerField()
     image_url = models.CharField(max_length=1080)
+    # image = models.ImageField(upload_to='products\imageFiles')
 
 
 class Offer(models.Model):
