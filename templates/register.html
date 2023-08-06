@@ -7,7 +7,7 @@
         <div class="note">
             
         </div>
-        <form method ="POST" action = ".">
+        <form action = "{% url 'register'%}" method ="POST" >
             {% csrf_token %}
         <div class="form-content">
             <div class="row">
@@ -32,9 +32,16 @@
                         {{form.password2}}                    </div>
                 </div>
             </div>
+            
             <button type="submit" class="btnSubmit">Register</button>
+</form>
+        <div> Already have an account? <a href="/login">Sign In</a>
+            </div>
         </div>
+      
+            
+        
     </div>
 </div>
-</form>
+
 </head>
