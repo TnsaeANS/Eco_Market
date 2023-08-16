@@ -23,9 +23,9 @@ def login(request):
     
         if user is not None:
             login(request, user)
-            return redirect('')
-    else:
-        messages.info(request, 'Username OR password is incorrect')
+            return redirect('homepage')
+        else:
+            messages.info(request, 'Username OR password is incorrect')
 
     
 

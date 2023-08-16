@@ -6,12 +6,13 @@ html {
   background: lightgreen;
 }
 
+
 .user_card {
   height: 400px;
   width: 350px;
   margin-top: auto;
   margin-bottom: auto;
-  background: #79fa9f;
+  background: #79fab3;
   position: relative;
   display: flex;
   justify-content: center;
@@ -48,13 +49,13 @@ html {
 
 .login_btn {
   width: 100%;
-  background: #c0392b !important;
-  color: white !important;
+  background: #c0392b ;
+  color: white;
 }
 
 .login_btn:focus {
-  box-shadow: none !important;
-  outline: 0px !important;
+  box-shadow: none;
+  outline: 0px;
 }
 
 .login_container {
@@ -62,18 +63,18 @@ html {
 }
 
 .input-group-text {
-  background: #c0392b !important;
-  color: white !important;
-  border: 0 !important;
-  border-radius: 0.25rem 0 0 0.25rem !important;
+  background: #c0392b;
+  color: white;
+  border: 0;
+  border-radius: 0.25rem 0 0 0.25rem;
 }
 
 .input_user,
 .input_pass:focus {
-  box-shadow: none !important;
-  outline: 0px !important;
+  box-shadow: none;
+  outline: 0px;
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
-  background-color: #c0392b !important;
+  background-color: #c0392b;
 }
