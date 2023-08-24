@@ -10,9 +10,9 @@ from django.views.decorators.csrf import csrf_protect
 # Create your views here.
 
 
-def index(request):#main page of the app
+def index(request):  # main page of the app
     products = Product.objects.all()
-    return render(request, 'index.html', {'products': products})
+    return render(request, "index.html", {"products": products})
 
 def register(request):
     form = CreateUserForm()
@@ -21,12 +21,13 @@ def register(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
-            user = form.cleaned_data.get('username')
+            user = form.cleaned_data.get("username")
             messages.success(request, "Account was created for " + user)
             return redirect('login')
         
 
-            
+    context = {"form": form}
+    return render(request, "register.html", context)
 
     context = {'form':form}
     return render(request, 'register.html', context)
