@@ -29,17 +29,18 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]"]
 
-
+CSRF_TRUSTED_ORIGINS=[]
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
-    "products.apps.ProductsConfig",
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'products.apps.ProductsConfig',
+    'mptt'
 ]
 
 MIDDLEWARE = [
