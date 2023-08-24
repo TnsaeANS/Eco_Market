@@ -17,7 +17,7 @@ class Offer(models.Model):
     discount = models.FloatField()
 
 class Category(MPTTModel):
-    names = models.CharField(verbose_name=("Category Name"),
+    name = models.CharField(verbose_name=("Category Name"),
                              help_text=("Unique"),
                              max_length=255,
                              unique=True)
@@ -39,12 +39,12 @@ class Category(MPTTModel):
         return reverse("store:category_list", args=[self.slug])
     
     def __str__(self):
-        return self.names
+        return self.name
 
 class ProductType(models.Model):
     #different types of product that are for sale
     
-    names = models.CharField(verbose_name=("Product Name"),
+    name = models.CharField(verbose_name=("Product Name"),
                              help_text=("Required"),
                              max_length=255,
                              unique=True)
@@ -55,14 +55,14 @@ class ProductType(models.Model):
             verbose_name_plural = ("Product Types")
 
     def __str__(self):
-        return self.names
+        return self.name
 
 
 class ProductSpecification(models.Model):
     # features for the product types
     
     product_type = models.ForeignKey(ProductType, on_delete=models.RESTRICT)
-    names = models.CharField(verbose_name=("Name"),
+    name = models.CharField(verbose_name=("Name"),
                              help_text=("Required"),
                              max_length=255,
                              unique=True)
@@ -72,7 +72,7 @@ class ProductSpecification(models.Model):
             verbose_name_plural = ("ProductSpecifications")
             
     def __str__(self):
-        return self.names
+        return self.name
     
 class Product(models.Model):
     # features for the product types
