@@ -1,5 +1,5 @@
 from django.db import models
-from django.db import reverse
+from django.urls import reverse
 from mptt.models import MPTTModel,  TreeForeignKey
 
 # Create your models here.
@@ -18,7 +18,7 @@ class Offer(models.Model):
 
 class Category(MPTTModel):
     names = models.CharField(verbose_name=("Category Name"),
-                             text_help=("Inique"),
+                             help_text=("Unique"),
                              max_length=255,
                              unique=True)
     
@@ -45,7 +45,7 @@ class ProductType(models.Model):
     #different types of product that are for sale
     
     names = models.CharField(verbose_name=("Product Name"),
-                             text_help=("Required"),
+                             help_text=("Required"),
                              max_length=255,
                              unique=True)
     is_active = models.BooleanField(default= True)
@@ -63,7 +63,7 @@ class ProductSpecification(models.Model):
     
     product_type = models.ForeignKey(ProductType, on_delete=models.RESTRICT)
     names = models.CharField(verbose_name=("Name"),
-                             text_help=("Required"),
+                             help_text=("Required"),
                              max_length=255,
                              unique=True)
 
@@ -78,10 +78,10 @@ class Product(models.Model):
     # features for the product types
     
     
-    product_type = models.ForeignKey(ProductType, on_delete=models.RESTRICT)
-    category = models.ForeignKey(ProductType, on_delete=models.RESTRICT)
-    title = models.models.CharField(verbose_name=("Title"), help_text=("required"), max_length=255)
-    description = models.models.TextField(verbose_name=("description"), help_text=("not required"), blank = True)
+    product_type = models.ForeignKey(ProductType, related_name="categories", on_delete=models.RESTRICT)
+    category = models.ForeignKey(ProductType, related_name="product_types",on_delete=models.RESTRICT)
+    title = models.CharField(verbose_name=("Title"), help_text=("required"), max_length=255)
+    description = models.TextField(verbose_name=("description"), help_text=("not required"), blank = True)
     slug = models.SlugField(max_length=255)
     regular_price = models.DecimalField(
          verbose_name=("Regular Price"), 
@@ -91,7 +91,7 @@ class Product(models.Model):
                    "max_length":("THe price should be between 0 and 99,999"),
               },
          },
-         max_length=6,
+         max_digits=6,
          decimal_places=2
     )
     discount_price = models.DecimalField(
@@ -102,7 +102,7 @@ class Product(models.Model):
                    "max_length":("The price should be between 0 and 99,999"),
               },
          },
-         max_length=6,
+         max_digits=6,
          decimal_places=2)
 
     is_active = models.BooleanField(
@@ -114,7 +114,7 @@ class Product(models.Model):
     updated_at = models.DateTimeField(("Updated at"), auto_now=True)
 
     class Meta:
-         ordering_favoriting=("-created_at")
+         ordering=["-created_at"]
          verbose_name=("Product")
          verbose_name_plural =("Products")
     
@@ -131,7 +131,7 @@ class ProductSpecificationValue(models.Model):
     specification = models.ForeignKey(ProductSpecification, on_delete=models.RESTRICT)
     
     value = models.CharField(verbose_name=("value"),
-                             text_help=("product specification value(maximum of 255 words)"),
+                             help_text=("product specification value(maximum of 255 words)"),
                              max_length=255,
                              )
 
@@ -150,13 +150,13 @@ class ProductImage(models.Model):
 
     image = models.ImageField(
         verbose_name=("image"),
-        text_help=("upload the product image"),
+        help_text=("upload the product image"),
         upload_to="images/",
         default="images/default.png"
     )
     alt_text = models.CharField(
         verbose_name=("Alternative Text"),
-        text_help=("Please add alternative text"),
+        help_text=("Please add alternative text"),
         max_length=255,
         null=True,
         blank=True
