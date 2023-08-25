@@ -55,3 +55,6 @@ def homepage(request):
     context = {}
     return render(request, 'homepage.html', context)
 
+def AccountSetting(request):
+    
+    return render(request,'AccountSetting.html')
