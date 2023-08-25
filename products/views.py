@@ -6,7 +6,8 @@ from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.views.decorators.csrf import csrf_protect
-
+from .models import Category, Product
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 
@@ -51,10 +52,30 @@ def login(request):
     context = {}
     return render(request, 'login.html', context)
 
+
+
 def homepage(request):
     context = {}
     return render(request, 'homepage.html', context)
 
+<<<<<<< HEAD
+
+def product_all(request):
+    products = Product.products.all()
+    return render(request, 'store/index.html', {'products': products})
+
+
+def category_list(request, category_slug=None):
+    category = get_object_or_404(Category, slug=category_slug)
+    products = Product.products.filter(category=category)
+    return render(request, 'store/category.html', {'category': category, 'products': products})
+
+
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug, in_stock=True)
+    return render(request, 'store/single.html', {'product': product})
+=======
 def AccountSetting(request):
     
     return render(request,'AccountSetting.html')
+>>>>>>> e83ede359d7a022bec7272adb5281e6cd005b660
