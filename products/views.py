@@ -32,7 +32,7 @@ def register(request):
     context = {'form':form}
     return render(request, 'register.html', context)
 
-
+@csrf_protect
 def login(request):
 
     if request.method == 'POST':
