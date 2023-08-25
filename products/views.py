@@ -58,6 +58,7 @@ def homepage(request):
     context = {}
     return render(request, 'homepage.html', context)
 
+<<<<<<< HEAD
 
 def product_all(request):
     products = Product.products.all()
@@ -73,3 +74,8 @@ def category_list(request, category_slug=None):
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, in_stock=True)
     return render(request, 'store/single.html', {'product': product})
+=======
+def AccountSetting(request):
+    
+    return render(request,'AccountSetting.html')
+>>>>>>> e83ede359d7a022bec7272adb5281e6cd005b660
