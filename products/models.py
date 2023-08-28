@@ -149,9 +149,9 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="product_image")
 
     image = models.ImageField(
-        verbose_name=("image"),
+        verbose_name=("images"),
         help_text=("upload the product image"),
-        upload_to="images/",
+        upload_to="images",
         default="images/default.png"
     )
     alt_text = models.CharField(
