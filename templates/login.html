@@ -2,7 +2,7 @@
 <html>
   <head>
     {%load static%}
-    <link rel="stylesheet" href="{% static 'css/loginRegister.css'%}" />
+    <link rel="stylesheet" href="{% static 'loginRegister.css'%}" />
     <title>Login Page</title>
     <link
       rel="stylesheet"
@@ -17,13 +17,13 @@
       integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
       crossorigin="anonymous"
     />
-    <style>
+    {% comment %} <style>
       body,
       html {
         margin: 0;
         padding: 0;
         height: 100%;
-        background: lightgreen;
+        background: white;
         background-image: rgb(226, 204, 207);
       }
 
@@ -91,7 +91,7 @@
         ~ .custom-control-label::before {
         background-color: #c0392b;
       }
-    </style>
+    </style> {% endcomment %}
   </head>
 
   <body>
