@@ -72,7 +72,12 @@ def category_list(request, category_slug=None):
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, is_active=True)
-    return render(request, 'templates/single.html', {'product': product})
+    template_name = 'single.html'
+    context ={
+        'product': product,
+        'template_name': template_name,
+    }
+    return render(request, 'single.html', {'product': product})
 
 
 def AccountSetting(request):
