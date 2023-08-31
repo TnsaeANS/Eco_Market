@@ -9,8 +9,6 @@ urlpatterns = [
     path("login", views.login, name="login"),
     path("register", views.register, name="register"),
     path("AccountSetting", views.AccountSetting, name="AccountSetting"),
-    path('', views.product_all, name='store_home'),
-    path('<slug:slug>', views.product_detail, name='product_detail'),
-    path('shop/<slug:category_slug>/', views.category_list, name='category_list'),
+    path('product/<slug:slug>', views.product_detail, name='product_detail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
  
