@@ -79,7 +79,7 @@ class Product(models.Model):
     
     
     product_type = models.ForeignKey(ProductType, related_name="categories", on_delete=models.RESTRICT)
-    category = models.ForeignKey(ProductType, related_name="product_types",on_delete=models.RESTRICT)
+    category = models.ForeignKey(Category, related_name="product_types",on_delete=models.RESTRICT)
     title = models.CharField(verbose_name=("Title"), help_text=("required"), max_length=255)
     description = models.TextField(verbose_name=("description"), help_text=("not required"), blank = True)
     slug = models.SlugField(max_length=255)
@@ -149,9 +149,9 @@ class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="product_image")
 
     image = models.ImageField(
-        verbose_name=("image"),
+        verbose_name=("images"),
         help_text=("upload the product image"),
-        upload_to="images/",
+        upload_to="images",
         default="images/default.png"
     )
     alt_text = models.CharField(

@@ -6,7 +6,8 @@ from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout
 from django.views.decorators.csrf import csrf_protect
-
+from .models import Category, Product
+from django.shortcuts import get_object_or_404
 # Create your views here.
 
 
@@ -43,7 +44,7 @@ def login(request):
         
         if user is not None:
             auth_login(request, user)
-            return redirect('homepage')
+            return redirect('AccountSetting')
         else:
             messages.error(request, 'Username OR password is incorrect')
     
@@ -51,10 +52,28 @@ def login(request):
     context = {}
     return render(request, 'login.html', context)
 
+
+
 def homepage(request):
     context = {}
     return render(request, 'homepage.html', context)
 
+
+def product_all(request):
+    products = Product.products.all()
+    return render(request, 'templates/index.html', {'products': products})
+
+
+def category_list(request, category_slug=None):
+    category = get_object_or_404(Category, slug=category_slug)
+    products = Product.products.filter(category=category)
+    return render(request, 'templates/category.html', {'category': category, 'products': products})
+
+
+def product_detail(request, slug):
+    product = get_object_or_404(Product, slug=slug, is_active=True)
+    return render(request, 'templates/single.html', {'product': product})
+
+
 def AccountSetting(request):
-    
     return render(request,'AccountSetting.html')
