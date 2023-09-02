@@ -5,6 +5,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout
+from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from .models import Category, Product
 from django.shortcuts import get_object_or_404
@@ -25,7 +26,7 @@ def register(request):
             user = form.cleaned_data.get("username")
             messages.success(request, "Account was created for " + user)
             return redirect('login')
-        
+
 
     context = {"form": form}
     return render(request, "register.html", context)
@@ -82,3 +83,9 @@ def product_detail(request, slug):
 
 def AccountSetting(request):
     return render(request,'AccountSetting.html')
+
+def editprofile(request):
+    return render(request, 'edit_profile.html')
+
+def favorites(request):
+    return render(request, 'favorites.html')
