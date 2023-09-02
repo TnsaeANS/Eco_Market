@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      .container {
+        display: flex;
+        justify-content: space-around;
+        margin: 20px;
+      }
+
+      .profile-picture {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 5px;
+      }
+      .savechanges-btn {
+        width: 100%;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <div>
+          <div class="text-center">
+            <img class="profile-picture" src="" alt="Profile Picture" />
+            <input type="file" id="file-input" class="form-control" />
+            <button id="save-button">Save Changes</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form role="form">
+          <div class="form-group">
+            <label>Full name:</label>
+            <input id="full-name" class="form-control" type="text" value="" />
+          </div>
+          <div class="form-group">
+            <label>Bio:</label>
+            <input id="bio" class="form-control" type="text" value="" />
+          </div>
+          <div class="form-group">
+            <label>Business status:</label>
+            <input
+              id="business-status"
+              class="form-control"
+              type="text"
+              value=""
+            />
+          </div>
+          <div class="form-group">
+            <label>Email:</label>
+            <input id="email" class="form-control" type="text" value="" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("save-button")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+
+          var fullName = document.getElementById("full-name").value;
+          var bio = document.getElementById("bio").value;
+          var businessStatus = document.getElementById("business-status").value;
+          var email = document.getElementById("email").value;
+
+          var fileInput = document.getElementById("file-input");
+          if (fileInput.files.length > 0) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementsByClassName("profile-picture")[0].src =
+                e.target.result;
+            };
+            reader.readAsDataURL(fileInput.files[0]);
+          }
+
+          localStorage.setItem("fullName", fullName);
+          localStorage.setItem("bio", bio);
+          localStorage.setItem("businessStatus", businessStatus);
+          localStorage.setItem("email", email);
+
+          window.location.href = "/AccountSetting.html";
+        });
+    </script>
+    <div></div>
+  </body>
+</html>

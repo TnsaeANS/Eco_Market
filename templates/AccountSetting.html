@@ -207,7 +207,7 @@
               crossorigin="anonymous"
             />
             <a href="/favorites" class="btn btn-primary">Favorites</a>
-            <a href="/edit.profile" class="btn btn-primary">Edit Profile</a>
+            <a href="/editprofile" class="btn btn-primary">Edit Profile</a>
           </div>
         </div>
       </div>
@@ -222,4 +222,24 @@
       </div>
     </div>
   </footer>
+  <script>
+    var fullName = localStorage.getItem("fullName");
+    var bio = localStorage.getItem("bio");
+    var email = localStorage.getItem("email");
+
+    var profileName = document.getElementById("profile-name");
+    if (profileName) {
+      profileName.textContent = fullName;
+    }
+
+    var profileBio = document.getElementsByClassName("profile-bio")[0];
+    if (profileBio) {
+      profileBio.textContent = bio;
+    }
+
+    var profileEmail = document.getElementById("profile-email");
+    if (profileEmail) {
+      profileEmail.textContent = email;
+    }
+  </script>
 </body>
