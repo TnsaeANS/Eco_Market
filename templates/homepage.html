@@ -1,26 +1,32 @@
-
  <title>Home</title>
-  
-  <link
-    rel="stylesheet"
-    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-    crossorigin="anonymous"
-  />
-  
-</head> 
 <!DOCTYPE html>
-<html>
-  <head> {%load static%}
-    <link rel="stylesheet" href="globals.css" />
-    <link rel="stylesheet" href="{% static 'loginRegister.css'%}" />
-  </head>
- 
-
-<nav class="navbar">
-  <div class="box">
-    <div class="text-wrapper">Eco-Market</div>
-  </div>  
-  <a href="/register" class="btn btn-primary">Register</a>
+  <head>
+    {%load static%}
+    <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous"
+            />
+    <link rel="stylesheet" href="{% static 'base.css'%}" />
+ </head>
+<body>
+  <nav class="navbar">
+    <div class="box">
+    </div>
+      <div class="text-wrapper">Eco-Market</div>
+    </div>
+    <div class= 'btn'>
+    <a href="/register" class="btn btn-primary">Register</a>
+  </div>
 </nav>
-
+<footer>
+  <div class="footer-content">
+    <div class="vertical-bar"></div>
+    <div class="footer-links">
+      <a href="#" class="transparent-link">About Us</a>
+      <a href="#" class="transparent-link">Terms and Conditions</a>
+    </div>
+  </div>
+</footer>
+</body>

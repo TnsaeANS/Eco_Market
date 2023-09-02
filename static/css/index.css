@@ -1,0 +1,131 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: rgb(255, 255, 255);
+  background-image: rgb(226, 204, 207);
+}
+    .navbar {
+      background-image: url("http://content.kens5.com/photo/2017/10/22/vegetables_1508727313637_11456014_ver1.0.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: white;
+      font-weight: bold;
+      background-position: center;
+      display: flex;
+      height: 100px;
+      width: auto;
+      opacity: 0.85;
+    }
+    .box {
+        margin: auto;
+        position: relative;
+        width: 453px;
+        height: 0px;
+      }
+      
+      .box .group {
+        position: sticky;
+        width: 1455px;
+        height: 423px;
+        top: 0;
+        left: 0;
+      }
+      
+      .rectangle {
+        
+        width: auto;
+        height: 30px;
+      
+      }
+      
+      .box .overlap-group {
+        position: absolute;
+        width: 1390px;
+        height: 211px;
+        top: 212px;
+        left: 13px;
+      }
+      
+      .box .img {
+        position: absolute;
+        width: auto;
+        height: 121px;
+        top: 23px;
+       
+      }
+      
+      .text-wrapper {
+        position: absolute;
+        top: 0;
+        left: 50px;
+        text-shadow: 2px 2px 4px #0c311d;
+        font-family: "Inter-Bold", Helvetica;
+        font-weight: 700;
+        color: #ffffff;
+        font-size: 70px;
+        letter-spacing: 0;
+        line-height: normal;
+      }
+      
+      .btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .box .div {
+        position: absolute;
+        width: 15px;
+        height: 62px;
+        top: 48px;
+        left: 84px;
+        background-color: #fd0606;
+      }
+      footer {
+        background-color: black;
+        padding: 10px;
+        position: bottom;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+  
+      .footer-content {
+        display: flex;
+        align-items: center;
+      }
+  
+      .vertical-bar {
+        width: 10px;
+        height: 80px;
+        background-color: red;
+        margin-right: 20px;
+      }
+  
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+      }
+  
+      .transparent-link {
+        color: white;
+        text-decoration: none;
+        padding: 3px;
+        transition: background-color 0.3s;
+      }
+  
+      .transparent-link:hover,
+      .transparent-link:focus {
+        background-color: lightblue;
+        color: black;
+      }
+  
+      .brand_logo {
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        border: 2px solid white;
+      }
