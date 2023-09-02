@@ -3,13 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>Edit Profile</title>
     <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+      }
+
       .container {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-evenly;
         margin: 20px;
+      }
+
+      .profile-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid #ccc;
+        border-radius: 20px;
+        padding: 10px;
+        color: black;
+        background-color: lightblue;
       }
 
       .profile-picture {
@@ -26,55 +43,92 @@
       .form-group label {
         display: block;
         font-weight: bold;
+        margin-bottom: 5px;
       }
 
-      .form-group input,
-      .form-group select {
+      .form-group input[type="text"],
+      .form-group input[type="email"] {
         width: 100%;
-        padding: 5px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
       }
-      .savechanges-btn {
+
+      .form-group textarea {
         width: 100%;
-        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        resize: vertical;
+      }
+
+      .button-container {
+        text-align: center;
+        margin-top: 200px;
+      }
+
+      .button-container button {
+        padding: 10px 20px;
+        background-color: white;
+        color: rgb(13, 72, 231);
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .button-container button:hover {
+        background-color: white;
+      }
+
+      .card {
+        background-color: lightblue;
+        padding: 70px;
+        border-radius: 20px;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div>
+      <div class="profile-container">
         <div>
-          <div class="text-center">
-            <img class="profile-picture" src="" alt="Profile Picture" />
-            <input type="file" id="file-input" class="form-control" />
-            <button id="save-button">Save Changes</button>
-          </div>
+          <img class="profile-picture" src="" alt="Profile Picture" />
+          <input type="file" id="file-input" class="form-control" />
+        </div>
+        <div class="button-container">
+          <button id="save-button">Save Changes</button>
         </div>
       </div>
 
       <div>
-        <form role="form">
-          <div class="form-group">
-            <label>Full name:</label>
-            <input id="full-name" class="form-control" type="text" value="" />
-          </div>
-          <div class="form-group">
-            <label>Bio:</label>
-            <input id="bio" class="form-control" type="text" value="" />
-          </div>
-          <div class="form-group">
-            <label>Business status:</label>
-            <input
-              id="business-status"
-              class="form-control"
-              type="text"
-              value=""
-            />
-          </div>
-          <div class="form-group">
-            <label>Email:</label>
-            <input id="email" class="form-control" type="text" value="" />
-          </div>
-        </form>
+        <div class="card">
+          <form id="edit-profile-form">
+            <div class="form-group">
+              <label for="full-name">Full name:</label>
+              <input id="full-name" class="form-control" type="text" value="" />
+            </div>
+            <div class="form-group">
+              <label for="bio">Bio:</label>
+              <textarea id="bio" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="business-status">Business status:</label>
+              <input
+                id="business-status"
+                class="form-control"
+                type="text"
+                value=""
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input id="email" class="form-control" type="email" value="" />
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 
@@ -93,20 +147,20 @@
           if (fileInput.files.length > 0) {
             var reader = new FileReader();
             reader.onload = function (e) {
-              document.getElementsByClassName("profile-picture")[0].src =
-                e.target.result;
+              var imageBase64 = e.target.result;
+              localStorage.setItem("profilePicture", imageBase64);
+              document.querySelector(".profile-picture").src = imageBase64;
             };
             reader.readAsDataURL(fileInput.files[0]);
           }
 
           localStorage.setItem("fullName", fullName);
-          localStorage.setItem("bio", bio);
+          localStorage.setItem("bio, bio);
           localStorage.setItem("businessStatus", businessStatus);
           localStorage.setItem("email", email);
 
-          window.location.href = "/AccountSetting.html";
+          window.location.href = "/AccountSetting";
         });
     </script>
-    <div></div>
   </body>
 </html>
