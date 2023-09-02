@@ -2,6 +2,8 @@
 <html>
   <head>
     {%load static%}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <link rel="stylesheet" href="{% static 'loginRegister.css'%}" />
     <title>Login Page</title>
     <link
@@ -20,6 +22,14 @@
   </head>
 
   <body>
+    <nav class="navbar">
+      <div class="box">
+      </div>
+        <div class="text-wrapper">Eco-Market</div>
+      </div>
+      <div class= 'btn'>
+    </div>
+  </nav>
     <div class="container h-100">
       <div class="d-flex justify-content-center h-100">
         <div class="user_card">
@@ -81,5 +91,14 @@
         </div>
       </div>
     </div>
-  </body>
+    
+  </body><footer>
+      <div class="footer-content">
+        <div class="vertical-bar"></div>
+        <div class="footer-links">
+          <a href="#" class="transparent-link">About Us</a>
+          <a href="#" class="transparent-link">Terms and Conditions</a>
+        </div>
+      </div>
+    </footer>
 </html>
