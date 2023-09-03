@@ -1,11 +1,10 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from .models import Product
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CreateUserForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login as auth_login, logout
-from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_protect
 from .models import Category, Product
 from django.shortcuts import get_object_or_404
@@ -26,7 +25,7 @@ def register(request):
             user = form.cleaned_data.get("username")
             messages.success(request, "Account was created for " + user)
             return redirect('login')
-
+        
 
     context = {"form": form}
     return render(request, "register.html", context)
@@ -53,6 +52,10 @@ def login(request):
     context = {}
     return render(request, 'login.html', context)
 
+def logoutuser(request):
+    logout(request)
+    messages.success(request, 'You Were Succesfully Logged Out')
+    return redirect('login')
 
 
 def homepage(request):
@@ -79,7 +82,6 @@ def product_detail(request, slug):
         'template_name': template_name,
     }
     return render(request, 'single.html', {'product': product})
-
 
 def AccountSetting(request):
     return render(request,'AccountSetting.html')
