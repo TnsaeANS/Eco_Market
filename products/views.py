@@ -83,11 +83,15 @@ def product_detail(request, slug):
     }
     return render(request, 'single.html', {'product': product})
 
+
+@login_required(login_url='/login')
 def AccountSetting(request):
     return render(request,'AccountSetting.html')
 
+@login_required(login_url='/login')
 def editprofile(request):
     return render(request, 'edit_profile.html')
 
+@login_required(login_url='/login')
 def favorites(request):
     return render(request, 'favorites.html')
