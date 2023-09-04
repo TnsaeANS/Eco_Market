@@ -1,3 +1,4 @@
+from sre_parse import CATEGORIES
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Product
@@ -58,20 +59,27 @@ def logoutuser(request):
     return redirect('login')
 
 
+# def category_list(request, category_slug=None):
+#     category = get_object_or_404(Category, slug=category_slug)
+#     categories = Category.objects.all()
+#     return render(request, 'homepage.html', {'category': categories})
+#     # , 'products': products})
+
 def homepage(request):
-    context = {}
-    return render(request, 'homepage.html', context)
+    categories = Category.objects.all()
+    return render(request, 'homepage.html', {'categories': categories})
+
+def showproducts(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+    products = Product.objects.filter(category=category)
+    categories = Category.objects.all()
+    return render(request, 'products.html', {'category': categories},{'products': products})
 
 
 def product_all(request):
     products = Product.products.all()
     return render(request, 'templates/index.html', {'products': products})
 
-
-def category_list(request, category_slug=None):
-    category = get_object_or_404(Category, slug=category_slug)
-    products = Product.products.filter(category=category)
-    return render(request, 'templates/category.html', {'category': category, 'products': products})
 
 
 def product_detail(request, slug):
