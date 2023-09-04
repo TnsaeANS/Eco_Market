@@ -29,7 +29,7 @@
 
   {% for category in categories %}
 
-      <a href="{% url 'showproducts' category.slug %}">{{ category.name }} {{ category.images }}</a>
+      <a href="{% url 'showproducts' category.slug %}">{{ category.name }}</a>
 
   {% endfor %}
 

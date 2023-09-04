@@ -31,9 +31,7 @@ def register(request):
     context = {"form": form}
     return render(request, "register.html", context)
 
-    context = {'form':form}
-    return render(request, 'register.html', context)
-
+    
 @csrf_protect
 def login(request):
 
@@ -59,12 +57,6 @@ def logoutuser(request):
     return redirect('login')
 
 
-# def category_list(request, category_slug=None):
-#     category = get_object_or_404(Category, slug=category_slug)
-#     categories = Category.objects.all()
-#     return render(request, 'homepage.html', {'category': categories})
-#     # , 'products': products})
-
 def homepage(request):
     categories = Category.objects.all()
     return render(request, 'homepage.html', {'categories': categories})
@@ -73,14 +65,7 @@ def showproducts(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     products = Product.objects.filter(category=category)
     categories = Category.objects.all()
-    return render(request, 'products.html', {'category': categories},{'products': products})
-
-
-def product_all(request):
-    products = Product.products.all()
-    return render(request, 'templates/index.html', {'products': products})
-
-
+    return render(request, 'categoryproducts.html', {'category': categories,'products': products})
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, is_active=True)

@@ -11,7 +11,7 @@ urlpatterns = [
     path("register", views.register, name="register"),
     path("AccountSetting", views.AccountSetting, name="AccountSetting"),
     path('product/<slug:slug>', views.product_detail, name='product_detail'),
-    path('product/<slug:category_slug>', views.showproducts, name='showproducts'),
+    path('products/<slug:category_slug>', views.showproducts, name='showproducts'),
 
     path("editprofile", views.editprofile, name="editprofile"),
     path("favorites", views.favorites, name="favorites"),
