@@ -11,10 +11,10 @@ from mptt.models import MPTTModel,  TreeForeignKey
 #     # image = models.ImageField(upload_to='products\imageFiles')
 
 
-class Offer(models.Model):
-    code = models.CharField(max_length=20)
-    description = models.CharField(max_length=50)
-    discount = models.FloatField()
+# class Offer(models.Model):
+#     code = models.CharField(max_length=20)
+#     description = models.CharField(max_length=50)
+#     discount = models.FloatField()
 
 class Category(MPTTModel):
     name = models.CharField(verbose_name=("Category Name"),
@@ -27,7 +27,14 @@ class Category(MPTTModel):
     parent = TreeForeignKey("self", on_delete=models.CASCADE,
                       null=True, blank=True, related_name="children")
     is_active = models.BooleanField(default=True)
-
+    description = models.TextField(verbose_name=("description"), help_text=("not required"), blank = True)
+    image = models.ImageField(
+        verbose_name=("category image"),
+        help_text=("upload the category image"),
+        upload_to="images/category",
+        default="images/category/default.png"
+    )
+    
     class MPTTMeta:
         order_insertion_by = ["name"]
     
