@@ -43,6 +43,7 @@ def login(request):
         
         if user is not None:
             auth_login(request, user)
+            request.session['username'] = username
             return redirect('AccountSetting')
         else:
             messages.error(request, 'Username OR password is incorrect')
@@ -79,7 +80,13 @@ def product_detail(request, slug):
 
 @login_required(login_url='/login')
 def AccountSetting(request):
-    return render(request,'AccountSetting.html')
+    username = request.session.get('username')
+
+    context = {
+        'username': username
+    }
+
+    return render(request, 'AccountSetting.html', context)
 
 @login_required(login_url='/login')
 def editprofile(request):
