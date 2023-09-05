@@ -134,7 +134,10 @@ html {
         height: 300px;
         width: 300px;
       }
-      
+      .text-wrapper a {
+        color: inherit;
+        text-decoration:none;
+      }
       .custom-img {
         object-fit: cover;
         height: 300px;
