@@ -11,11 +11,8 @@
       height: 70px;
       width: auto;
       opacity: 0.85;
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
       z-index: 999;
+      position: fixed;
     }
 
     .box .text-wrapper {
@@ -26,9 +23,12 @@
       font-family: "Inter-Bold", Helvetica;
       font-weight: 700;
       color: #ffffff;
-      font-size: 48px;
+      font-size: 35px;
       letter-spacing: 0;
       line-height: normal;
+      position: absolute;
+      left: 10px;
+      right: 2px;
     }
     body {
       margin-top: 20px;
@@ -170,8 +170,8 @@
       transition: background-color 0.3s;
     }
 
-    .transparent-button:hover,
-    .transparent-button:focus {
+    .transparent-link:hover,
+    .transparent-link:focus {
       background-color: lightblue;
       color: black;
     }
@@ -191,7 +191,7 @@
           <div class="profile-header">
             <img class="profile-picture" src="" alt="Profile Picture" />
             <div class="profile-info">
-              <h1 id="profile-name" class="username">Tnsae Alemayehu</h1>
+              <p id="Username">{{ username }}</p>
               <p id="profile-bio" class="profile-bio">
                 Perfume importer from Dubai.
               </p>
@@ -210,8 +210,8 @@
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
               crossorigin="anonymous"
             />
-            <a href="/favorites" class="btn btn-primary">Favorites</a>
-            <a href="/editprofile" class="btn btn-primary">Edit Profile</a>
+            <a href="/favorites" class="transparent-link">Favorites</a>
+            <a href="/editprofile" class="transparent-link">Edit Profile</a>
           </div>
         </div>
       </div>
@@ -221,8 +221,8 @@
     <div class="footer-content">
       <div class="vertical-bar"></div>
       <div class="footer-links">
-        <a href="/aboutus.html" class="btn btn-primary">About Us</a>
-        <a href="/terms.html" class="btn btn-primary">Terms and Conditions</a>
+        <a href="/aboutus" class="transparent-link">About Us</a>
+        <a href="/terms" class="transparent-link">Terms and Conditions</a>
       </div>
     </div>
   </footer>
