@@ -95,3 +95,7 @@ def editprofile(request):
 @login_required(login_url='/login')
 def favorites(request):
     return render(request, 'favorites.html')
+
+@login_required(login_url='/login')
+def FAQ(request):
+    return render(request, 'FAQ.html')
