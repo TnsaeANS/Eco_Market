@@ -12,7 +12,7 @@ urlpatterns = [
     path("AccountSetting", views.AccountSetting, name="AccountSetting"),
     path('product/<slug:slug>', views.product_detail, name='product_detail'),
     path('products/<slug:category_slug>', views.showproducts, name='showproducts'),
-
+    path("FAQ", views.FAQ, name="FAQ"),
     path("editprofile", views.editprofile, name="editprofile"),
     path("favorites", views.favorites, name="favorites"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
