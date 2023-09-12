@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>{{ product.title }}</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>{{ product.title }}</h1>
     <p>{{ product.description }}</p>
     <p>Price: {{ product.regular_price }}</p>
-    {% for image in product.product_image.all %}
-    
-    {% if image.is_feature %}
-    <img class="card-img-top custom-img" width="200px" height="200px" src="{{ image.image.url }}" alt="{{ image.image.alt_text }}" />
+    {% for image in product.product_image.all %} {% if image.is_feature %}
+    <img
+      class="card-img-top custom-img"
+      width="200px"
+      height="200px"
+      src="{{ image.image.url }}"
+      alt="{{ image.image.alt_text }}"
+    />
 
     {% else %}
-    <img class="card-img-top custom-img" width="100px" height="100px" src="{{ image.image.url }}" alt="{{ image.image.alt_text }}" />
+    <img
+      class="card-img-top custom-img"
+      width="100px"
+      height="100px"
+      src="{{ image.image.url }}"
+      alt="{{ image.image.alt_text }}"
+    />
 
-    {%endif%}
-
-    {% endfor%}
-
-   
-
-</body>
+    {%endif%} {% endfor%}
+  </body>
 </html>
