@@ -12,7 +12,16 @@
       width: auto;
       opacity: 0.85;
     }
-
+    .navbar .text-wrapper a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .button-container {
+      position: absolute;
+      top: 40px;
+      right: 0;
+    }
+    
     .box .text-wrapper {
       position: relative;
       text-shadow: 2px 2px 4px #0c311d;
@@ -179,10 +188,15 @@
 <body>
   <nav class="navbar">
     <div class="box">
-      <div class="text-wrapper">Eco-Market</div>
+      <div class="text-wrapper">
+        <a href="{% url 'homepage' %}">Eco-Market</a>
+      </div>
+      <div class="button-container">
+        <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+      </div>
     </div>
-    <a href={%url "logout"%} class="btn btn-primary">Logout</a>
   </nav>
+    
   <div class="container mt-6" style="margin-top: 70px">
     <div class="card">
       <div class="card-body">

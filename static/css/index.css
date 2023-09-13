@@ -109,6 +109,17 @@ html {
         display: flex;
         flex-direction: column;
       }
+      
+  .button-container {
+    position: absolute;
+    top: 20;
+    right: 0;
+  }
+  .button-container a {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
   
       .transparent-link {
         color: white;

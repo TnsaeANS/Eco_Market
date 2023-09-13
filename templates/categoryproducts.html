@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{ category.title }}</title>
+    <title>Category </title>
     {% load static %}
     <link
       rel="stylesheet"
@@ -13,27 +13,27 @@
   </head>
   <body>
     <nav class="navbar">
-      <div class="box"></div>
-      <div class="text-wrapper">
-        <a href="{% url 'homepage' %}">Eco-Market</a>
+      <div class="box">
       </div>
-      <div class="btn">
+      <div class="text-wrapper"><a href={%url 'homepage'%}>Eco-Market</div>
+      </a></div>    </div>
+      <div class= 'btn'>
         {% if user.is_authenticated %}
-        <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+        <div class="button-container">
+          <a href="{% url 'AccountSetting' %}" class="btn btn-primary">Setting</a>
+          <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+        </div>
         {% else %}
-        <a href="/register" class="btn btn-primary">Register</a>
-        {% endif %}
-      </div>
-    </nav>
-
+      <a href="/register" class="btn btn-primary">Register</a>
+    {%endif%}</div>
+  </nav>
     {% block content %}
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
         <div
           class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center"
         >
-          {% for product in products %} {% for image in
-          product.product_image.all %} {% if image.is_feature %}
+          {% for product in products %} {% for image in product.product_image.all %} {% if image.is_feature %}
           <div class="col mb-5">
             <div class="card h-100">
               <!-- Product image-->
@@ -68,7 +68,7 @@
               </div>
             </div>
           </div>
-          {% endif %} {% endfor %} {% endfor %}
+          {% endif %} {% endfor %} {% endfor %} 
         </div>
       </div>
     </section>

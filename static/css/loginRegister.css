@@ -12,11 +12,20 @@
   width: auto;
   opacity: 0.85;
 }
-
-.text-wrapper a {
-  color: inherit;
-  text-decoration:none;
+.transparent-link {
+  color: white;
+  text-decoration: none;
+  padding: 3px;
+  transition: background-color 0.3s;
 }
+
+.transparent-link:hover,
+.transparent-link:focus {
+  background-color: lightblue;
+  color: black;
+}
+
+
     
 body,
 html {
@@ -336,6 +345,10 @@ html {
   font-size: 70px;
   letter-spacing: 0;
   line-height: normal;
+}
+.text-wrapper a {
+  color: inherit;
+  text-decoration:none;
 }
 
 .btn {
