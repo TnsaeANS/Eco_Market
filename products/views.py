@@ -1,7 +1,8 @@
 from sre_parse import CATEGORIES
+from unittest import result
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Product
+from .models import Product, favorite
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .forms import CreateUserForm
@@ -121,6 +122,20 @@ def editprofile(request):
 
 @login_required(login_url="/login")
 def favorites(request):
+    product = get_object_or_404(product)
+    
+    if favorites.objects.filter(user = result.user, product=product.exists()):
+        
+     return render(request, "favorites.html", {'product':product})
+    favorite = favorite(user=request.user, product=product)
+    favorite.save()
+    
+    return render(request, 'favorites.html', {'product': product})
+
+@login_required
+def favorite_list(request):
+    favorites = favorite.objects.filter(user=request.user)
+    return render(request, 'favorite.html', {'favorites': favorites})
     return render(request, "favorites.html")
 
 
