@@ -19,8 +19,11 @@
     <div class= 'btn'>
       {% if user.is_authenticated %}
       <div class="button-container">
+        <a href="{% url 'products' %}" class="btn btn-primary">Recently Added</a>
         <a href="{% url 'AccountSetting' %}" class="btn btn-primary">Setting</a>
         <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+        
+
       </div>
       {% else %}
     <a href="/register" class="btn btn-primary">Register</a>
