@@ -21,7 +21,7 @@
       top: 40px;
       right: 0;
     }
-    
+
     .box .text-wrapper {
       position: relative;
       text-shadow: 2px 2px 4px #0c311d;
@@ -101,6 +101,7 @@
       width: 500px;
       height: 250px;
       margin-right: 0px;
+      position: relative;
     }
 
     .card-body {
@@ -109,8 +110,12 @@
 
     .profile-actions {
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
-      margin-top: 20px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      padding-top: 90px;
+      bottom: 10px;
     }
 
     .favorites-btn,
@@ -122,6 +127,7 @@
       border-radius: 5px;
       font-size: 20px;
       cursor: pointer;
+      margin-bottom: 10px;
     }
 
     @media (max-width: 600px) {
@@ -196,7 +202,7 @@
       </div>
     </div>
   </nav>
-    
+
   <div class="container mt-6" style="margin-top: 70px">
     <div class="card">
       <div class="card-body">
@@ -205,15 +211,7 @@
             <img class="profile-picture" src="" alt="Profile Picture" />
             <div class="profile-info">
               <p id="Username">{{ username }}</p>
-              <p id="profile-bio" class="profile-bio">
-                Perfume importer from Dubai.
-              </p>
-            </div>
-          </div>
-          <div class="profile-stats">
-            <div class="stat">
-              <span class="stat-value">0</span>
-              <span class="stat-label">Post</span>
+              <p id="profile-bio" class="profile-bio"></p>
             </div>
           </div>
           <div class="profile-actions">

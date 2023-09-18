@@ -127,7 +127,3 @@ def favorites(request):
 @login_required(login_url="/login")
 def FAQ(request):
     return render(request, "FAQ.html")
-
-
-def messages(request):
-    return render(request, "messages.html")
