@@ -40,6 +40,11 @@
         padding: 0;
       }
 
+      .text-wrapper a {
+        color: white;
+        text-decoration: none;
+      }
+
       .container {
         display: flex;
         justify-content: space-evenly;
@@ -136,7 +141,9 @@
   <body>
     <nav class="navbar">
       <div class="box">
-        <div class="text-wrapper">Eco-Market</div>
+        <div class="text-wrapper">
+          <a href="{% url 'homepage' %}">Eco-Market</a>
+        </div>
       </div>
     </nav>
     <div class="container">
