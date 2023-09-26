@@ -109,6 +109,14 @@ class Product(models.Model):
     description = models.TextField(
         verbose_name=("description"), help_text=("not required"), blank=True
     )
+
+    location = models.CharField(
+        verbose_name=("location"), help_text=("required"), blank=True, max_length=255
+    )
+    contact = models.CharField(
+        verbose_name=("contact"), help_text=("required"), blank=True, max_length=255
+    )
+
     slug = models.SlugField(max_length=255)
     regular_price = models.DecimalField(
         verbose_name=("Regular Price"),
