@@ -10,6 +10,22 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{% static 'index.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <style>
+      .btn-white {
+        color: white;
+        font-size: 1.8rem;
+        margin-right: 10px;
+      }
+      .button-container {
+        display: flex;
+        gap: auto;
+      }
+    </style>
   </head>
   <body>
     <nav class="navbar">
@@ -20,8 +36,9 @@
       <div class= 'btn'>
         {% if user.is_authenticated %}
         <div class="button-container">
-          <a href="{% url 'AccountSetting' %}" class="btn btn-primary">Setting</a>
-          <a href="{% url 'logout' %}" class="btn btn-primary">Logout</a>
+          <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
+            <i class="fa fa-user"></i>
+          </a>
         </div>
         {% else %}
       <a href="/register" class="btn btn-primary">Register</a>
