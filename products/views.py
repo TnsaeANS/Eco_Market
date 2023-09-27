@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_protect
 from .models import Category, Product
 from django.shortcuts import get_object_or_404
 from .models import Profile
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 
@@ -121,7 +122,23 @@ def editprofile(request):
 
 @login_required(login_url="/login")
 def favorites(request):
-    return render(request, "favorites.html")
+    if request.method == 'POST':
+        product_id = request.POST.get('product_id')
+        product = Product.objects.get(id=product_id)
+        # Add the product to the user's favorites
+        request.user.profile.favorites.add(product)
+        return redirect("favorites", views.favorites, name="favorites" ),
+
+    favorites = request.user.profile.favorites.all()
+    context = {'favorites': favorites}
+    return render(request, 'products/favorites.html', context)
+
+
+def add_to_favorites(request, product_id):
+    product = Product.objects.get(id=product_id)
+    request.user.favorite_products.add(product)
+    return redirect('account_settings')
+
 
 
 @login_required(login_url="/login")

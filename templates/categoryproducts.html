@@ -90,7 +90,14 @@
               <!-- Product actions-->
               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
+<<<<<<< HEAD
                   <a href="/FAQ" class="transparent-link">FAQ</a>                </div>
+=======
+                  <a href="{% url 'favorites' %}" class="btn btn-black btn-lg">
+                    <i class="fa fa-heart" aria-hidden="true"></i>
+                  </a>
+                </div>
+>>>>>>> c87308af903646e67c5cba076db66f70a48c0573
               </div>
             </div>
           </div>
@@ -99,5 +106,13 @@
       </div>
     </section>
     {% endblock %}
+    <footer>
+      <div class="footer-content">
+        <div class="vertical-bar"></div>
+        <div class="footer-links">
+          <a href="/FAQ" class="transparent-link">FAQ</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
