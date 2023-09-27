@@ -18,6 +18,16 @@ html {
       width: auto;
       opacity: 0.85;
     }
+
+
+    .rectangle{
+
+      height: 55px !important;
+      width:absolute;
+      background-color: #D9D9D9;
+    }
+
+
     .box {
         margin: auto;
         position: relative;
@@ -71,9 +81,9 @@ html {
       
       .btn {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        justify-content: right;
+        align-items: right;
+        text-align: right;
       }
       
       .box .div {

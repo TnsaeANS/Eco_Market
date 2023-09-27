@@ -32,18 +32,28 @@
       <div class="box">
       </div>
       <div class="text-wrapper"><a href={%url 'homepage'%}>Eco-Market</div>
-      </a></div>    </div>
-      <div class= 'btn'>
-        {% if user.is_authenticated %}
-        <div class="button-container">
-          <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
-            <i class="fa fa-user"></i>
-          </a>
-        </div>
-        {% else %}
-      <a href="/register" class="btn btn-primary">Register</a>
-    {%endif%}</div>
+      </a>
+    </div>    
+    </div>
   </nav>
+  
+  <div class="rectangle">
+    <div class="btn">
+      {% if user.is_authenticated %}
+      <div class="button-container">
+        <a href="{% url 'products' %}" class="btn btn-white btn-lg">
+          <i class="fa fa-plus"></i>
+        </a>
+        <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
+          <i class="fa fa-user"></i>
+        </a>
+      </div>
+      {% else %}
+      <a href="/register" class="btn btn-primary">Register</a>
+      {% endif %}
+    </div>
+  </div>
+
     {% block content %}
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
@@ -80,10 +90,14 @@
               <!-- Product actions-->
               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
+<<<<<<< HEAD
+                  <a href="/FAQ" class="transparent-link">FAQ</a>                </div>
+=======
                   <a href="{% url 'favorites' %}" class="btn btn-black btn-lg">
                     <i class="fa fa-heart" aria-hidden="true"></i>
                   </a>
                 </div>
+>>>>>>> c87308af903646e67c5cba076db66f70a48c0573
               </div>
             </div>
           </div>
