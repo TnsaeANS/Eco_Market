@@ -14,7 +14,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
     />
-
+  
+    
     <style>
       .btn-white {
         color: white;
@@ -33,21 +34,29 @@
       <div class="text-wrapper">
         <a href="{% url 'homepage' %}">Eco-Market</a>
       </div>
-      <div class="btn">
-        {% if user.is_authenticated %}
-        <div class="button-container">
-          <a href="{% url 'products' %}" class="btn btn-white btn-lg">
-            <i class="fa fa-plus"></i>
-          </a>
-          <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
-            <i class="fa fa-user"></i>
-          </a>
-        </div>
-        {% else %}
-        <a href="/register" class="btn btn-primary">Register</a>
-        {% endif %}
-      </div>
+      
     </nav>
+
+    
+      
+  </div>
+  <div class="rectangle">
+    <div class="btn">
+      {% if user.is_authenticated %}
+      <div class="button-container">
+        <a href="{% url 'products' %}" class="btn btn-white btn-lg">
+          <i class="fa fa-plus"></i>
+        </a>
+        <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
+          <i class="fa fa-user"></i>
+        </a>
+      </div>
+      {% else %}
+      <a href="/register" class="btn btn-primary">Register</a>
+      {% endif %}
+    </div>
+  </div>
+
 
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
@@ -88,6 +97,7 @@
     <footer>
       <div class="footer-content">
         <div class="vertical-bar"></div>
+        <a href="/FAQ" class="transparent-link">FAQ</a>
       </div>
     </footer>
   </body>
