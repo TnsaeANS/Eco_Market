@@ -12,6 +12,7 @@ from django.views.decorators.csrf import csrf_protect
 from .models import Category, Product
 from django.shortcuts import get_object_or_404
 from .models import Profile
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 
