@@ -32,18 +32,28 @@
       <div class="box">
       </div>
       <div class="text-wrapper"><a href={%url 'homepage'%}>Eco-Market</div>
-      </a></div>    </div>
-      <div class= 'btn'>
-        {% if user.is_authenticated %}
-        <div class="button-container">
-          <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
-            <i class="fa fa-user"></i>
-          </a>
-        </div>
-        {% else %}
-      <a href="/register" class="btn btn-primary">Register</a>
-    {%endif%}</div>
+      </a>
+    </div>    
+    </div>
   </nav>
+  
+  <div class="rectangle">
+    <div class="btn">
+      {% if user.is_authenticated %}
+      <div class="button-container">
+        <a href="{% url 'products' %}" class="btn btn-white btn-lg">
+          <i class="fa fa-plus"></i>
+        </a>
+        <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
+          <i class="fa fa-user"></i>
+        </a>
+      </div>
+      {% else %}
+      <a href="/register" class="btn btn-primary">Register</a>
+      {% endif %}
+    </div>
+  </div>
+
     {% block content %}
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
