@@ -1,42 +1,9 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Category </title>
-    {% load static %}
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{% static 'index.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
 
-    <style>
-      .btn-white {
-        color: white;
-        font-size: 1.8rem;
-        margin-right: 10px;
-      }
-      .button-container {
-        display: flex;
-        gap: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="box">
-      </div>
-      <div class="text-wrapper"><a href={%url 'homepage'%}>Eco-Market</div>
-      </a>
-    </div>    
-    </div>
-  </nav>
-  
+{% extends 'base.html' %}
+
+
+
+   
   <div class="rectangle">
     <div class="btn">
       {% if user.is_authenticated %}
@@ -53,7 +20,7 @@
       {% endif %}
     </div>
   </div>
-
+<title>Category </title>
     {% block content %}
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
@@ -86,19 +53,20 @@
                   <p>BIRR {{ product.regular_price }}</p>
                 </div>
               </div>
-
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+              
+              <style>
+                .btn-favorites {
+                  display: flex;
+                  justify-content: center;
+                  align-center:auto;
+                }
+              </style>
+            <!-- Product actions-->
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                 <div class="text-center">
-<<<<<<< HEAD
-                  <a href="/FAQ" class="transparent-link">FAQ</a>                </div>
-=======
-                  <a href="{% url 'favorites' %}" class="btn btn-black btn-lg">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
-                  </a>
+                    <a href="#" class="btn btn-primary btn-favorites">Add to Favorites</a>
                 </div>
->>>>>>> c87308af903646e67c5cba076db66f70a48c0573
-              </div>
+            </div>
             </div>
           </div>
           {% endif %} {% endfor %} {% endfor %} 
@@ -106,13 +74,6 @@
       </div>
     </section>
     {% endblock %}
-    <footer>
-      <div class="footer-content">
-        <div class="vertical-bar"></div>
-        <div class="footer-links">
-          <a href="/FAQ" class="transparent-link">FAQ</a>
-        </div>
-      </div>
-    </footer>
+   
   </body>
 </html>
