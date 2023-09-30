@@ -156,9 +156,23 @@ def productlistajax(request):
 
 def searchproduct(request):
     if request.method == 'POST':
-        search_query = request.POST.get('search_query')  
-        product = get_object_or_404(Product, title__icontains=search_query, is_active=True)
-        product_slug = product.slug 
-        return redirect(reverse('product_detail', kwargs={'slug': product_slug}))
+        search_query = request.POST.get('search_query')
+
+        if search_query:
+            products = Product.objects.filter(title__icontains=search_query, is_active=True)
+
+            if products.exists():
+                if products.count() == 1:
+                    product_slug = products.first().slug
+                    return redirect(reverse('product_detail', kwargs={'slug': product_slug}))
+                else:                    
+                    messages.info(request, 'Multiple items match your search query. Please refine your search.')
+                    return redirect('homepage')
+            else:                
+                messages.info(request, 'No items match your search query.')
+                return redirect('homepage')
+        else:
+            messages.info(request, 'Please enter a search query.')
+            return redirect('homepage')
 
     return render(request, 'single.html')
