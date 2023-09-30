@@ -7,21 +7,22 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script>
-$( function() {
-var availableTags = [
+var availableTags = [];
 
 $.ajax({
   method: "GET",
-  url: "/products"
+  url: "/product-list"
   success: function (response){
-    
+    console.log(response);
+    availableTags = response;
   }
-})
+});
 
-];
+
+
 $( "#search" ).autocomplete({
 source: availableTags
-});} );
+});
 </script>
   <div class="search-bar">
   <div class="input-group">
@@ -31,8 +32,6 @@ source: availableTags
   </div>
   </div>
 
-
- 
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
         <div
@@ -41,6 +40,9 @@ source: availableTags
           {% for category in categories %}
           <div class="col mb-5">
             <div class="card h-100">
+              <a
+                      href="{% url 'showproducts' category.slug %}"
+                      class="text-dark text-decoration-none">
               <!-- Category image -->
               <img
                 class="card-img-top custom-img"
@@ -49,6 +51,7 @@ source: availableTags
                 src="{{ category.image.url }}"
                 alt="{{ category.name }}"
               />
+            </a>
               <!-- Category details -->
               <div class="card-body p-4">
                 <div class="text-center">
@@ -56,9 +59,8 @@ source: availableTags
                   <h5 class="fw-bolder">
                     <a
                       href="{% url 'showproducts' category.slug %}"
-                      class="text-dark text-decoration-none"
-                      >{{ category.name }}</a
-                    >
+                      class="text-dark text-decoration-none">
+                      {{ category.name }}</a>
                   </h5>
                 </div>
               </div>

@@ -30,6 +30,8 @@
           {% for product in products %} {% for image in product.product_image.all %} {% if image.is_feature %}
           <div class="col mb-5">
             <div class="card h-100">
+              <a href="{% url 'product_detail' slug=product.slug %}">
+                     
               <!-- Product image-->
               <img
                 class="card-img-top custom-img"
@@ -38,6 +40,7 @@
                 src="{{ image.image.url }}"
                 alt="{{ image.image.alt_text }}"
               />
+            </a>
               <!-- Product details-->
               <div class="card-body p-4">
                 <div class="text-center">
@@ -46,27 +49,26 @@
                     <a
                       href="{% url 'product_detail' slug=product.slug %}"
                       class="text-dark text-decoration-none"
-                      >{{ product.title }}</a
-                    >
+                      >{{ product.title }}</a>
                   </h5>
                   <!-- Product price-->
                   <p>BIRR {{ product.regular_price }}</p>
                 </div>
               </div>
               
-              <style>
-                .btn-favorites {
-                  display: flex;
-                  justify-content: center;
-                  align-center:auto;
-                }
-              </style>
-            <!-- Product actions-->
-            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                <div class="text-center">
-                    <a href="#" class="btn btn-primary btn-favorites">Add to Favorites</a>
-                </div>
-            </div>
+               <style>
+                                                .btn-favorites {
+                                                  display: flex;
+                                                  justify-content: center;
+                                                  align-center:auto;
+                                                }
+                                              </style>
+                                            <!-- Product actions-->
+                                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                                <div class="text-center">
+                                                    <a href="#" class="btn btn-primary btn-favorites">Add to Favorites</a>
+                                                </div>
+                                            </div>
             </div>
           </div>
           {% endif %} {% endfor %} {% endfor %} 
