@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+<!DOCTYPE html>
 
 {% comment %} <link rel="stylesheet" href="/resources/demos/style.css">    {% endcomment %}
 {% block content %} 
@@ -11,25 +12,29 @@ var availableTags = [];
 
 $.ajax({
   method: "GET",
-  url: "/product-list"
+  url: "/product-list",
   success: function (response){
     console.log(response);
-    availableTags = response;
+    startautocomplete(response);
   }
 });
 
-
-
+function startautocomplete(availableTags)
+{  
 $( "#search" ).autocomplete({
-source: availableTags
+    source: availableTags
 });
+
+}
 </script>
-  <div class="search-bar">
-  <div class="input-group">
-    <input type="text" class="form-control" id="search" placeholder="Search Products" >
-    <button class="input-group-text" id="basic-addon1"> <i class = "fa fa-search"></i></button>
-    
+<div class="search-bar">
+  <form action="{% url 'searchproduct' %}" method="POST">
+    {% csrf_token %}
+    <div class="input-group">
+    <input type="search" class="form-control" id="search" placeholder="Search Products" name="search_query">
+    <button type="submit" class="input-group-text" id="basic-addon1"> <i class = "fa fa-search"></i></button>
   </div>
+</form>
   </div>
 
     <section class="py-5">
