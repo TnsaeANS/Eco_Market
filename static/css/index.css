@@ -34,7 +34,25 @@ html {
         width: 453px;
         height: 0px;
       }
-      
+    
+      .btn-white {
+        color: white;
+        font-size: 1.8rem;
+        margin-right: 10px;
+      }
+      .button-container {
+        display: flex;
+        gap: auto;
+      }
+  
+    
+      .search-bar {
+        width: 500px; 
+        margin-top: -6px;
+        margin-left: 300px;
+         
+      }
+
       .box .group {
         position: sticky;
         width: 1455px;

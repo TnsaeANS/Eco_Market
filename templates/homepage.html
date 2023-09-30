@@ -1,63 +1,41 @@
-<title>Home</title>
+{% extends 'base.html' %}
 <!DOCTYPE html>
-<html>
-  <head>
-    {% load static %}
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="{% static 'index.css' %}" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-    />
-  
-    
-    <style>
-      .btn-white {
-        color: white;
-        font-size: 1.8rem;
-        margin-right: 10px;
-      }
-      .button-container {
-        display: flex;
-        gap: auto;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="box"></div>
-      <div class="text-wrapper">
-        <a href="{% url 'homepage' %}">Eco-Market</a>
-      </div>
-      
-    </nav>
 
-    
-      
+{% comment %} <link rel="stylesheet" href="/resources/demos/style.css">    {% endcomment %}
+{% block content %} 
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script>
+var availableTags = [];
+
+$.ajax({
+  method: "GET",
+  url: "/product-list",
+  success: function (response){
+    console.log(response);
+    startautocomplete(response);
+  }
+});
+
+function startautocomplete(availableTags)
+{  
+$( "#search" ).autocomplete({
+    source: availableTags
+});
+
+}
+</script>
+<div class="search-bar">
+  <form action="{% url 'searchproduct' %}" method="POST">
+    {% csrf_token %}
+    <div class="input-group">
+    <input type="search" class="form-control" id="search" placeholder="Search Products" name="search_query">
+    <button type="submit" class="input-group-text" id="basic-addon1"> <i class = "fa fa-search"></i></button>
   </div>
-  <div class="rectangle">
-    <div class="btn">
-      {% if user.is_authenticated %}
-      <div class="button-container">
-        <a href="{% url 'products' %}" class="btn btn-white btn-lg">
-          <i class="fa fa-plus"></i>
-        </a>
-        <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
-          <i class="fa fa-user"></i>
-        </a>
-      </div>
-      {% else %}
-      <a href="/register" class="btn btn-primary">Register</a>
-      {% endif %}
-    </div>
+</form>
   </div>
-
-
 
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
@@ -67,6 +45,9 @@
           {% for category in categories %}
           <div class="col mb-5">
             <div class="card h-100">
+              <a
+                      href="{% url 'showproducts' category.slug %}"
+                      class="text-dark text-decoration-none">
               <!-- Category image -->
               <img
                 class="card-img-top custom-img"
@@ -75,6 +56,7 @@
                 src="{{ category.image.url }}"
                 alt="{{ category.name }}"
               />
+            </a>
               <!-- Category details -->
               <div class="card-body p-4">
                 <div class="text-center">
@@ -82,9 +64,8 @@
                   <h5 class="fw-bolder">
                     <a
                       href="{% url 'showproducts' category.slug %}"
-                      class="text-dark text-decoration-none"
-                      >{{ category.name }}</a
-                    >
+                      class="text-dark text-decoration-none">
+                      {{ category.name }}</a>
                   </h5>
                 </div>
               </div>
@@ -94,17 +75,11 @@
         </div>
       </div>
     </section>
-
+    {% endblock %}
     <footer>
       <div class="footer-content">
         <div class="vertical-bar"></div>
-<<<<<<< HEAD
         <a href="/FAQ" class="transparent-link">FAQ</a>
-=======
-        <div class="footer-links">
-          <a href="/FAQ" class="transparent-link">FAQ</a>
-        </div>
->>>>>>> c87308af903646e67c5cba076db66f70a48c0573
       </div>
     </footer>
   </body>

@@ -13,6 +13,8 @@ from .models import Category, Product
 from django.shortcuts import get_object_or_404
 from .models import Profile
 from django.views.decorators.http import require_POST
+from django.http import JsonResponse
+from django.urls import reverse
 
 # Create your views here.
 
@@ -144,3 +146,19 @@ def add_to_favorites(request, product_id):
 @login_required(login_url="/login")
 def FAQ(request):
     return render(request, "FAQ.html")
+
+
+def productlistajax(request):
+    productz = Product.objects.filter(is_active=True).values_list('title', flat = True)   
+    productList = list(productz)
+    return JsonResponse(productList, safe=False)
+
+
+def searchproduct(request):
+    if request.method == 'POST':
+        search_query = request.POST.get('search_query')  
+        product = get_object_or_404(Product, title__icontains=search_query, is_active=True)
+        product_slug = product.slug 
+        return redirect(reverse('product_detail', kwargs={'slug': product_slug}))
+
+    return render(request, 'single.html')

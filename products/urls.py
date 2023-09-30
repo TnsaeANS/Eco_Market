@@ -15,4 +15,7 @@ urlpatterns = [
     path("FAQ", views.FAQ, name="FAQ"),
     path("editprofile", views.editprofile, name="editprofile"),
     path("favorites", views.favorites, name="favorites"),
+    path("product-list", views.productlistajax, name="product-list"),
+    path("searchproduct", views.searchproduct, name="searchproduct")
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
