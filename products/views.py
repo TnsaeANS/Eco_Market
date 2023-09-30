@@ -163,19 +163,15 @@ def searchproduct(request):
 
             if products.exists():
                 if products.count() == 1:
-                    # Only one matching product found, redirect to its detail page
                     product_slug = products.first().slug
                     return redirect(reverse('product_detail', kwargs={'slug': product_slug}))
-                else:
-                    # Multiple matching products found, display a warning
+                else:                    
                     messages.info(request, 'Multiple items match your search query. Please refine your search.')
                     return redirect('homepage')
-            else:
-                # No matching products found, display a warning
+            else:                
                 messages.info(request, 'No items match your search query.')
                 return redirect('homepage')
         else:
-            # Empty search query, display a warning
             messages.info(request, 'Please enter a search query.')
             return redirect('homepage')
 
