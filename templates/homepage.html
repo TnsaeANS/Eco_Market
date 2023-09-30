@@ -31,11 +31,20 @@ $( "#search" ).autocomplete({
   <form action="{% url 'searchproduct' %}" method="POST">
     {% csrf_token %}
     <div class="input-group">
-    <input type="search" class="form-control" id="search" placeholder="Search Products" name="search_query">
-    <button type="submit" class="input-group-text" id="basic-addon1"> <i class = "fa fa-search"></i></button>
-  </div>
-</form>
-  </div>
+      <input type="search" class="form-control" id="search" placeholder="Search Products" name="search_query">
+      <button type="submit" class="input-group-text" id="basic-addon1"> <i class="fa fa-search"></i></button>
+    </div>
+  </form>
+  {% if messages %}
+    {% for message in messages %}
+      {% if message.tags == 'info' %}
+        <div class="alert alert-warning" role="alert">
+          {{ message }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>
 
     <section class="py-5">
       <div class="container px-4 px-lg-5 mt-5">
