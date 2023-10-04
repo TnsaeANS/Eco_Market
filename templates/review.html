@@ -77,7 +77,13 @@
 <body>
   <div class="review-container">
     <h2>Leave a Review</h2>
-  
+    <div class="rating-stars">
+      <span class="star" onclick="rate(1)">&#9733;</span>
+      <span class="star" onclick="rate(2)">&#9733;</span>
+      <span class="star" onclick="rate(3)">&#9733;</span>
+      <span class="star" onclick="rate(4)">&#9733;</span>
+      <span class="star" onclick="rate(5)">&#9733;</span>
+    </div>
     <textarea id="comment" placeholder="Enter your comment"></textarea>
     <button onclick="submitReview()">Submit</button>
   </div>
