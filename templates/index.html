@@ -22,6 +22,8 @@
                                                     <h5 class="fw-bolder"><a href="{% url 'product_detail' slug=product.slug%}" class="text-dark text-decoration-none">{{ product.title}}</a></h5>
                                                     <!-- Product price-->
                                                     <p>BIRR {{ product.regular_price }}</p>
+                                                    <p>Located at: {{ product.location }}</p>
+
                                                 </div>
                                             </div>
                                             <style>
