@@ -52,6 +52,13 @@
       padding: 15px;
       font-family: Arial, Helvetica, sans-serif;
     }
+
+    .logout-button {
+      background-color: white;
+      color: black;
+      margin-right: 20px;
+    }
+
     .profile-header {
       display: flex;
       align-items: center;
@@ -202,9 +209,11 @@
       <div class="text-wrapper"><a href={%url 'homepage'%}>Eco-Market</div>
 
       <div class="button-container">
-        <a href="{% url 'logout' %}" class="btn btn-white">
-          <i class="fa fa-solid fa-right-from-bracket"></i>
-        </a>
+        <div class="logout-button">
+          <a href="{% url 'logout' %}" class="btn btn-white logout-button"
+            >Logout</a
+          >
+        </div>
       </div>
     </div>
   </nav>
