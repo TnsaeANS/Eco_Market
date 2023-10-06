@@ -13,9 +13,9 @@ urlpatterns = [
     path("product/<slug:slug>", views.product_detail, name="product_detail"),
     path("products/<slug:category_slug>", views.showproducts, name="showproducts"),
     path("FAQ", views.FAQ, name="FAQ"),
-    path("editprofile", views.editprofile, name="editprofile"),
+    path("edit_profile", views.edit_profile, name="edit_profile"),
     path("favorites", views.favorites, name="favorites"),
     path("product-list", views.productlistajax, name="product-list"),
-    path("searchproduct", views.searchproduct, name="searchproduct")
+    path("search_product", views.search_product, name="search_product")
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

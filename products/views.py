@@ -98,7 +98,7 @@ def AccountSetting(request):
 
 
 @login_required(login_url="/login")
-def editprofile(request):
+def edit_profile(request):
     if request.method == "POST":
         form = ProfileForm(request.POST)
         if form.is_valid():
@@ -154,7 +154,7 @@ def productlistajax(request):
     return JsonResponse(productList, safe=False)
 
 
-def searchproduct(request):
+def search_product(request):
     if request.method == 'POST':
         search_query = request.POST.get('search_query')
 
