@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Review Button</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f6f6f6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .review-container {
+      width: 400px;
+      padding: 40px;
+      background-color: #ffffff;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+      color: #333333;
+      text-align: center;
+    }
+
+    .rating-stars {
+      font-size: 24px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .star {
+      color: #cccccc;
+      cursor: pointer;
+      transition: color 0.3s;
+      margin: 0 5px;
+    }
+
+    .star.selected,
+    .star:hover {
+      color: gold;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+      margin-top: 10px;
+      padding: 10px;
+      border: 1px solid #cccccc;
+      resize: vertical;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-radius: 4px;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="review-container">
+    <h2>Leave a Review</h2>
+    <div class="rating-stars">
+      <span class="star" onclick="rate(1)">&#9733;</span>
+      <span class="star" onclick="rate(2)">&#9733;</span>
+      <span class="star" onclick="rate(3)">&#9733;</span>
+      <span class="star" onclick="rate(4)">&#9733;</span>
+      <span class="star" onclick="rate(5)">&#9733;</span>
+    </div>
+    <textarea id="comment" placeholder="Enter your comment"></textarea>
+    <button onclick="submitReview()">Submit</button>
+  </div>
+  <script>
+    let selectedRating = 0;
+
+    function rate(rating) {
+      selectedRating = rating;
+      const stars = document.getElementsByClassName("star");
+      for (let i = 0; i < stars.length; i++) {
+        if (i < rating) {
+          stars[i].classList.add("selected");
+        } else {
+          stars[i].classList.remove("selected");
+        }
+      }
+    }
+
+    function submitReview() {
+      const comment = document.getElementById("comment").value;
+      if (selectedRating > 0 && comment.trim() !== "") {
+      
+        console.log("Rating:", selectedRating);
+        console.log("Comment:", comment);
+      } else {
+        alert("Please provide a rating and comment.");
+      }
+    }
+  </script>
+</body>
+</html>
