@@ -28,7 +28,7 @@ $( "#search" ).autocomplete({
 }
 </script>
 <div class="search-bar">
-  <form action="{% url 'searchproduct' %}" method="POST">
+  <form action="{% url 'search_product' %}" method="POST">
     {% csrf_token %}
     <div class="input-group">
       <input type="search" class="form-control" id="search" placeholder="Search Products" name="search_query">
