@@ -3,8 +3,6 @@ html {
   margin: 0;
   padding: 0;
   height: 100%;
-  background: rgb(255, 255, 255);
-  background-image: rgb(226, 204, 207);
   display: flex;
   flex-direction: column;
 }
