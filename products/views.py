@@ -124,16 +124,7 @@ def edit_profile(request):
 
 @login_required(login_url="/login")
 def favorites(request):
-    if request.method == 'POST':
-        product_id = request.POST.get('product_id')
-        product = Product.objects.get(id=product_id)
-        # Add the product to the user's favorites
-        request.user.profile.favorites.add(product)
-        return redirect("favorites", views.favorites, name="favorites" ),
-
-    favorites = request.user.profile.favorites.all()
-    context = {'favorites': favorites}
-    return render(request, 'products/favorites.html', context)
+    return render(request, 'favorites.html')
 
 
 def add_to_favorites(request, product_id):
