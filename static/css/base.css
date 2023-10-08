@@ -342,7 +342,10 @@ html {
   align-items: center;
   text-align: center;
 }
-
+.text-wrapper a {
+  color: inherit;
+  text-decoration:none;
+}
 .box .div {
   position: absolute;
   width: 15px;
