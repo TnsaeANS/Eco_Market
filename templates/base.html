@@ -72,30 +72,26 @@
 
 </script>
   <div class="rectangle">
-    <div class="btn">
+    <div class="button-container">
       {% if user.is_authenticated %}
-      
-      <div class="button-container">
-        
-      </div><a href="{% url 'products' %}" class="btn btn-white btn-lg">
-          <i class="fa fa-plus"></i>
-        </a>
-        <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
-          <i class="fa fa-user"></i>
-        </a><a onclick="toggleDarkMode()" class="material-symbols-outlined btn btn-white btn-lg mx-3">
-        <span id="darkModeIcon">dark_mode</span>
+      <a href="{% url 'products' %}" class="btn btn-white btn-lg">
+        <i class="fa fa-plus"></i>
+      </a>
+      <a href="{% url 'AccountSetting' %}" class="btn btn-white btn-lg">
+        <i class="fa fa-user"></i>
+      </a>
+      <a onclick="toggleDarkMode()" class="material-symbols-outlined btn btn-white btn-lg mx-3">
+      <span id="darkModeIcon">dark_mode</span>
       </a>
       {% else %}
-      
       <a href="/register" class="btn btn-white btn-lg">
         <i class="fa fa-user"></i></a>
         <a onclick="toggleDarkMode()" class="material-symbols-outlined btn btn-white btn-lg mx-3">
         <span id="darkModeIcon">dark_mode</span>
       </a>
       {% endif %}
-    </div></div>
-    
-   
+    </div>
+  </div>
     <body>
       
   
