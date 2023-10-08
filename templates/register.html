@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html>
-<head>
-    
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'loginRegister.css'%}" />
-    <title>Registration Page</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-</head>
 
+{% extends 'base.html' %}
+{% block content %}
 <body>
+<<<<<<< HEAD
     <nav class="navbar">
         <div class="box">
         </div>
@@ -20,6 +14,10 @@
       </div>
     </nav>
     <div class="container h-100">
+=======
+
+    <div class="container min-vh-100 mt-5">
+>>>>>>> 2f2b37c71e84ec9ceef8ec7fb21eb78e6d642240
         <div class="d-flex justify-content-center h-100">
             <div class="user_card">
                 <div class="d-flex justify-content-center">
@@ -76,13 +74,8 @@
         </div>
     </div>
     
-</body><footer>
-        <div class="footer-content">
-          <div class="vertical-bar"></div>
-          <div class="footer-links">
-            <a href="#" class="transparent-link">About Us</a>
-            <a href="#" class="transparent-link">Terms and Conditions</a>
-          </div>
-        </div>
-      </footer>
+</body>
+  
+{% endblock content %}
+
 </html>
